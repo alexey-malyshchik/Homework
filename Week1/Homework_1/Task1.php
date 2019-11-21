@@ -1,11 +1,6 @@
 <?php
-CONST TEST_CONSTANTA = 'asd';
-$user_name = 'Igor';
-function showSomething()
-{
-    return 'SOMETHING';
-}
-
-if (1 == 1) {
-    echo 'hi';
-}
+$name = 'Алексей';
+$age = '25';
+echo "Меня зовут: $name<br>";
+echo "Мне $age лет<br>";
+echo "!|/'\"\\";
