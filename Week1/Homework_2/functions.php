@@ -14,6 +14,35 @@ function task1(array $strings, bool $unite_strings = false)
     }
 }
 
+function task2($operator, ...$numbers)
+{
+    if ($operator == '+') {
+        $result = $numbers[0];
+        for ($i = 1; $i < count($numbers); $i++) {
+            $result += $numbers[$i];
+        }
+        echo implode(" $operator ", $numbers) . ' = ' . "$result";
+    } elseif ($operator == '-') {
+        $result = $numbers[0];
+        for ($i = 1; $i < count($numbers); $i++) {
+            $result -= $numbers[$i];
+        }
+        echo implode(" $operator ", $numbers) . ' = ' . "$result";
+    } elseif ($operator == '*') {
+        $result = $numbers[0];
+        for ($i = 1; $i < count($numbers); $i++) {
+            $result *= $numbers[$i];
+        }
+        echo implode(" $operator ", $numbers) . ' = ' . "$result";
+    } elseif ($operator == '/') {
+        $result = $numbers[0];
+        for ($i = 1; $i < count($numbers); $i++) {
+            $result /= $numbers[$i];
+        }
+        echo implode(" $operator ", $numbers) . ' = ' . "$result";
+    }
+}
+
 function task3(int $rows, int $cols)
 {
     echo '<table border="1" cellspacing="0" cellpadding="4">';
