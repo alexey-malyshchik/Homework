@@ -39,6 +39,32 @@ function task1()
     echo '</table><br>';
 }
 
+//function task2()
+//{
+//    $flowers = array(
+//        array(
+//            "Name" => "Roses",
+//            "Price" => 100,
+//            "Qty" => 15
+//        ),
+//        array(
+//            "Name" => "Tulips",
+//            "Price" => 60,
+//            "Qty" => 25,
+//        ),
+//        array(
+//            "Name" => "Orchids",
+//            "Price" => 180,
+//            "Qty" => 7
+//        )
+//    );
+//    echo '<pre>';
+//    var_dump($flowers);
+//    $jsonFlowers = json_encode($flowers);
+//    var_dump($jsonFlowers);
+//    $jsonFileSave = file_put_contents('output.json', $jsonFlowers);
+//}
+
 function task3()
 {
     for ($i = 0; $i < 50; $i++) {
@@ -48,20 +74,26 @@ function task3()
     fputcsv($newFile, $arrayRand, ';');
     echo 'Создали CSV<br>';
 }
+
 function task4()
 {
     $fp = fopen('newCSV.csv', 'r');
     $ret = fgetcsv($fp, 1000, ';');
     foreach ($ret as $item) {
-        if($item % 2 === 0 ){
+        if ($item % 2 === 0) {
             $sum[] = $item;
         }
     }
-    echo 'Сумма четных чисел в массиве: ' . array_sum($sum) . '<br>';
+    echo 'Сумма четных чисел в массиве: ' . array_sum($sum) . '<br><br>';
 }
+
 function task5()
 {
-    $page = file_get_contents('https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json');
+    $page
+        = file_get_contents('https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json');
     $jsonPage = json_decode($page, true);
-    print_r($jsonPage);
+    $pageID = $jsonPage['query']['pages']['15580374']['pageid'];
+    $title = $jsonPage['query']['pages']['15580374']['title'];
+    echo 'Page ID: ' . $pageID . '<br>';
+    echo 'Title: ' . $title . '<br>';
 }
