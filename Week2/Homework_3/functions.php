@@ -59,3 +59,9 @@ function task4()
     }
     echo 'Сумма четных чисел в массиве: ' . array_sum($sum) . '<br>';
 }
+function task5()
+{
+    $page = file_get_contents('https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json');
+    $jsonPage = json_decode($page, true);
+    print_r($jsonPage);
+}
