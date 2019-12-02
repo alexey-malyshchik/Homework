@@ -92,8 +92,15 @@ function task5()
     $page
         = file_get_contents('https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json');
     $jsonPage = json_decode($page, true);
-    $pageID = $jsonPage['query']['pages']['15580374']['pageid'];
-    $title = $jsonPage['query']['pages']['15580374']['title'];
-    echo 'Page ID: ' . $pageID . '<br>';
-    echo 'Title: ' . $title . '<br>';
+    //$jsonPage = json_encode($jsonPage, 0, 100);
+//    $pageID = $jsonPage['query']['pages']['15580374']['pageid'];
+//    $title = $jsonPage['query']['pages']['15580374']['title'];
+//    $title = $jsonPage['query']['pages'];
+    $test = $jsonPage['query']['pages'];
+    echo '<pre>';
+    print_r($test[0]);
+    echo(array_key_first($jsonPage['query']['pages']));
+//    print_r($jsonPage);
+//    echo 'Page ID: ' . $pageID . '<br>';
+//    echo 'Title: ' . $title . '<br>';
 }
