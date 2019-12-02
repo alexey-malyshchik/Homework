@@ -41,5 +41,5 @@ $massage = "Добрый день, {$_POST['name']}! Ваш заказ №{$ship
             Детали заказа:  DarkBeefBurger за 500 рублей, 1 шт<br>
             Адрес доставки: {$address}<br>
             Комментарий: {$details}";
-$mail = mail($email, $subject, $massage);
+mail($email, $subject, $massage);
 
