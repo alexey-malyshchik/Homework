@@ -15,8 +15,6 @@ if ($connection->connect_error) {
 $users = $connection->query("SELECT `id`, `name`, `email`, `phone`, `ship count` FROM `users`");
 while ($elem = $users->fetch_assoc()){
     $dataUsers[] = $elem;}
-echo '<pre>';
-
 echo '<table cellspacing="0px" border="2px">';
 echo '<caption>Пользователи</caption>';
 echo '<tr><th>id user</th><th>name</th><th>email</th><th>phone</th><th>ship count</th></tr>';
@@ -30,7 +28,6 @@ foreach ($dataUsers as $item) {
     echo '</tr>';
     }
 echo '</table>';
-
 //Получаем данные заказов
 //
 $ships = $connection->query("SELECT `id ship`, `address`, `id`, `details` FROM `shipping`");
