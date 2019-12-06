@@ -34,12 +34,14 @@ $details = 'Комментарий: ' . $_POST['comment'] . ' Оплата: ' . 
 $ship_info = $connection->query("INSERT INTO `shipping` (`address`,`id`,`details`) VALUES ('{$address}','{$id["id"]}','{$details}')");
 //Отправка письма
 //
-$shipId = $connection->query("SELECT MAX(`id ship`) FROM `shipping` WHERE `id` = {$id["id"]}")->fetch_assoc();
-$email = $_POST['email'];
-$subject = "Заказ №{$shipId}";
-$massage = "Добрый день, {$_POST['name']}! Ваш заказ №{$shipId} будет доставлен в ближайшее время.<br>
-            Детали заказа:  DarkBeefBurger за 500 рублей, 1 шт<br>
-            Адрес доставки: {$address}<br>
-            Комментарий: {$details}";
-mail($email, $subject, $massage);
-
+function mailSend()
+{
+    $shipId = $connection->query("SELECT MAX(`id ship`) FROM `shipping` WHERE `id` = {$id["id"]}")->fetch_assoc();
+    $email = $_POST['email'];
+    $subject = "Заказ №{$shipId}";
+    $massage = "Добрый день, {$_POST['name']}! Ваш заказ №{$shipId} будет доставлен в ближайшее время.<br>
+                Детали заказа:  DarkBeefBurger за 500 рублей, 1 шт<br>
+                Адрес доставки: {$address}<br>
+                Комментарий: {$details}";
+    mail($email, $subject, $massage);
+}

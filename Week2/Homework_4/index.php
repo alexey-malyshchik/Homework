@@ -127,11 +127,11 @@ class TimeRate extends RateSource
     public function ridePrice()
     {
 
-        $this->newTime();
+        $this->hoursTime();
         return parent::ridePrice();
     }
 
-    public function newTime()
+    public function hoursTime()
     {
         $this->time = ceil($this->time / 60);
         return $this->time;
